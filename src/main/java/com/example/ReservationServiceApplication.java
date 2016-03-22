@@ -38,6 +38,7 @@ public class ReservationServiceApplication {
 				"Bridget", "Stephane", "Josh", "Jennifer")
 				.forEach(n -> rr.save(new Reservation(n)));
 	}
+	
 }
 
 @RepositoryRestResource
@@ -48,6 +49,7 @@ interface ReservationRepository  extends JpaRepository<Reservation, Long> {
 
 @Controller
 class ReservationMvcController {
+	
 	private final ReservationRepository reservationRepository;
 
 	@Autowired
@@ -61,12 +63,13 @@ class ReservationMvcController {
 		// find template named 'reservations'
 		return "reservations";
 	}
-
+	
 }
 
 @SpringUI(path = "ui")
 @Theme("valo")
 class ReservationUI extends UI {
+	
 	private final ReservationRepository reservationRepository;
 
 	@Autowired
@@ -85,4 +88,5 @@ class ReservationUI extends UI {
 		table.setSizeFull();
 		setContent(table);
 	}
+	
 }
